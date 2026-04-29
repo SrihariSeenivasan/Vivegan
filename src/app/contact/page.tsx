@@ -144,7 +144,7 @@ const ContactPage = () => {
           <h3 className="text-xl font-bold text-vme-slate font-outfit mb-2">Visit Our Factory</h3>
           <p className="text-sm text-slate-500 mb-6">Ambattur Industrial Estate, Chennai, Tamil Nadu</p>
           <a 
-            href="httpss://www.google.com/maps/search/?api=1&query=Ambattur+Industrial+Estate+Chennai" 
+            href="https://www.google.com/maps/dir/?api=1&destination=No.38+Padavattamman+Industrial+Estate+Ambattur+Chennai+600098" 
             target="_blank"
             className="inline-block bg-vme-slate text-white px-8 py-3 rounded-lg font-bold text-sm tracking-widest uppercase"
           >

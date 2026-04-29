@@ -32,7 +32,7 @@ const AboutPage = () => {
               About <span className="text-vme-blue">Us</span>
             </h1>
             <p className="text-slate-400 text-lg font-medium uppercase tracking-widest">
-              Precision Manufacturing Excellence Since 2021
+              Precision Manufacturing Excellence Since 2023
             </p>
           </MotionDiv>
         </div>
@@ -61,7 +61,7 @@ const AboutPage = () => {
 
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  VIVEGAN MANUFACTURING ENGINEERING was established in 2021 to provide high-precision
+                  VIVEGAN MANUFACTURING ENGINEERING was established in 2023 to provide high-precision
                   manufacturing solutions with innovative engineering at the world-class cutting edge.
                 </p>
                 <p>
@@ -159,7 +159,7 @@ const AboutPage = () => {
                 icon: Users,
                 number: "03",
                 title: "TeamWork",
-                desc: "At Smart tech engineering., we know success and transformational change is only achieved through working together.",
+                desc: "At VIVEGAN MANUFACTURING ENGINEERING, we know success and transformational change is only achieved through working together.",
                 bg: "bg-vme-slate",
                 textColor: "text-white",
                 subColor: "text-white/70",
@@ -241,7 +241,7 @@ const AboutPage = () => {
 
               <div className="bg-gradient-to-br from-vme-red/5 to-vme-blue/5 border border-vme-red/10 rounded-2xl p-8 space-y-2">
                 <div className="w-8 h-8 text-vme-red mb-3">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.039 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.039 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" /></svg>
                 </div>
                 <p className="text-vme-slate font-bold font-outfit text-lg leading-snug">
                   On-Time Delivery with Zero Defects
@@ -309,7 +309,7 @@ const AboutPage = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-white/10">
             {[
-              { val: "2021", label: "Established" },
+              { val: "2023", label: "Established" },
               { val: '0.0001"', label: "Min Tolerance" },
               { val: "100%", label: "Quality Assurance" },
               { val: "24/7", label: "Support" },

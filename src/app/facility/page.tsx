@@ -7,71 +7,75 @@ import { Ruler, Monitor, Cpu, Gauge, ShieldCheck, Cog, CheckCircle2 } from 'luci
 
 const machines = [
   {
-    name: "AMS 850V",
+    name: "VME 850V",
     type: "Vertical Machining",
     bed: "1000 x 510 mm",
     travel: "X: 800mm | Y: 500mm | Z: 500mm",
     speed: "10000 RPM",
     controller: "FANUC Series Oi-MF plus",
-    extra: "4th Axis Rotary Table (200mm dia Ucam)"
+    extra: "4th Axis Rotary Table (200mm dia Ucam)",
+    image: "/machines/VME850V.png"
   },
   {
-    name: "MACPOWER",
+    name: "VME 9500",
+    type: "Vertical Machining",
+    bed: "1000 x 650 mm",
+    travel: "X: 950mm | Y: 550mm | Z: 550mm",
+    speed: "10000 RPM",
+    controller: "Mitsubishi",
+    image: "/machines/cnc-op.png"
+  },
+  {
+    name: "VME RDX-20",
     type: "Vertical Machining",
     bed: "1000 x 510 mm",
     travel: "X: 800mm | Y: 500mm | Z: 500mm",
     speed: "8000 RPM",
-    controller: "Mitsubishi"
+    controller: "FANUC Series Oi-MF plus",
+    image: "/services/manufacturing.png"
   },
   {
-    name: "JYOTHI RDX-20",
-    type: "Vertical Machining",
-    bed: "1000 x 510 mm",
-    travel: "X: 800mm | Y: 500mm | Z: 500mm",
-    speed: "8000 RPM",
-    controller: "FANUC Series Oi-MF plus"
-  },
-  {
-    name: "AMS 740V",
+    name: "VME 740V",
     type: "Vertical Machining",
     bed: "900 x 400 mm",
     travel: "X: 750mm | Y: 470mm | Z: 400mm",
     speed: "10000 RPM",
     controller: "FANUC Series Oi-MF plus",
-    extra: "4th Axis Rotary Table (200mm dia Ucam)"
+    extra: "4th Axis Rotary Table (200mm dia Ucam)",
+    image: "/services/tool-die.png"
   }
 ]
 
 const instruments = [
-  { 
-    name: "Surface Plate", 
-    detail: "Grade I, 500 X 500 mm, Granite (GMT Make)", 
+  {
+    name: "Surface Plate",
+    detail: "Grade I, 500 X 500 mm, Granite (GMT Make)",
     image: "/parts/parts-1.png",
-    icon: Gauge 
+    icon: Gauge
   },
-  { 
-    name: "Height Gauge", 
-    detail: "300 mm Long (Digital Height Gauge Mitutoyo)", 
+  {
+    name: "Height Gauge",
+    detail: "300 mm Long (Digital Height Gauge Mitutoyo)",
     image: "/machines/vmc-1.png",
-    icon: Ruler 
+    icon: Ruler
   },
-  { 
-    name: "Dial Comparator", 
-    detail: "1 m Mahr make (1 Nos)", 
+  {
+    name: "Dial Comparator",
+    detail: "1 m Mahr make (1 Nos)",
     image: "/services/component-manufacturing.png",
-    icon: Monitor 
+    icon: Monitor
   },
-  { 
-    name: "Micrometers", 
-    detail: "0-25 to 50-75 mm (Mitutoyo make)", 
+  {
+    name: "Micrometers",
+    detail: "0-25 to 50-75 mm (Mitutoyo make)",
     image: "/services/tool-die.png",
-    icon: Gauge 
+    icon: Gauge
   },
-  { 
-    name: "Vernier Calipers", 
-    detail: "200mm, 300mm, 150mm (Digital Vernier Mitutoyo)", 
+  {
+    name: "Vernier Calipers",
+    detail: "200mm, 300mm, 150mm (Digital Vernier Mitutoyo)",
     image: "/parts/parts-1.png",
-    icon: Ruler 
+    icon: Ruler
   }
 ]
 
@@ -101,7 +105,7 @@ const FacilityPage = () => {
             {machines.map((m, i) => (
               <div key={i} className="bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 flex flex-col md:flex-row shadow-sm hover:shadow-xl transition-shadow group">
                 <div className="md:w-1/3 bg-slate-200 relative min-h-[200px]">
-                  <Image src="/machines/vmc-1.png" alt={m.name} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <Image src={m.image} alt={m.name} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
                   <div className="absolute top-4 left-4 bg-vme-blue text-vme-dark px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest">{m.type}</div>
                 </div>
                 <div className="p-8 flex-1 space-y-6">
@@ -140,7 +144,7 @@ const FacilityPage = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Inspection Section */}
       <section className="py-24 bg-slate-50 relative overflow-hidden">
         {/* Decorative background circle */}
@@ -152,7 +156,7 @@ const FacilityPage = () => {
               <div className="inline-flex items-center gap-2 bg-vme-blue/10 px-4 py-1 rounded-full text-vme-blue text-xs font-bold uppercase tracking-widest">
                 <ShieldCheck size={14} /> Quality Control Mastery
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold font-outfit text-vme-slate">Inspection Equipments</h2>
+              <h2 className="text-4xl md:text-5xl font-bold font-outfit text-vme-slate">Galary</h2>
               <p className="text-slate-600 leading-relaxed text-lg">
                 Our quality lab is equipped with calibrated instruments to ensure that every dimension meets the tightest tolerances required by our Aerospace and Automotive partners.
               </p>
@@ -161,7 +165,7 @@ const FacilityPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {instruments.map((ins, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

@@ -11,13 +11,16 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="space-y-6">
             <Link href="/" className="flex items-center gap-3">
-              <div className="relative w-10 h-10 bg-white rounded p-1">
-                <Image src="/logos/vme-logo.png" alt="VME Logo" fill className="object-contain" />
+              <div className="relative w-20 h-20 bg-white rounded-4xl p-2 overflow-hidden">
+                <Image src="/logos/viveganLogo.jpeg" alt="VME Logo" fill className="object-contain" />
               </div>
-              <span className="text-xl font-bold font-outfit tracking-tight">VIVEGAN Engineering</span>
+              <div className="flex flex-col">
+                <span className="text-xl font-bold font-outfit text-white tracking-tight leading-none">VIVEGAN</span>
+                <span className="text-[10px] text-vme-blue uppercase tracking-[0.2em] font-bold">Manufacturing Engineering</span>
+              </div>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed">
-              Innovative engineering and strategic manufacturing since 2021. Specializing in precision CNC machining and total project management for Aerospace, Automotive, and Medical domains.
+              Innovative engineering and strategic manufacturing since 2023. Specializing in precision CNC machining and total project management for Aerospace, Automotive, and Medical domains.
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-vme-blue transition-colors"><Globe size={16} /></a>
@@ -42,9 +45,9 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-bold mb-6 font-outfit text-vme-blue">Our Expertise</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li>CNC Machining</li>
+              <li>Aerospace Component Manufacturing</li>
+              <li>Medical Component Manufacturing</li>
               <li>Jig & Fixtures</li>
-              <li>Component Manufacturing</li>
               <li>Tool & Die</li>
               <li>Engineering Service</li>
               <li>Manufacturing Service</li>

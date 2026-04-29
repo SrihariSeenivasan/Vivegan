@@ -1,80 +1,130 @@
 "use client"
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Settings, Cpu, DraftingCompass, ArrowRight, ShieldCheck, Microscope, Zap } from 'lucide-react'
-import Testimonials from '@/components/Testimonials'
+
 
 const MotionDiv = motion.div
 
+const heroCarouselImages = [
+  "/machines/vmc-1.png",
+  "/parts/parts-1.png",
+  "/machines/cnc-op.png"
+]
+
 const Home = () => {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroCarouselImages.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center overflow-hidden bg-vme-dark">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-vme-dark pt-20">
         {/* Background Overlay */}
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="/machines/vmc-1.png" 
-            alt="CNC Machining" 
-            fill 
-            className="object-cover opacity-30 scale-105" 
+          <Image
+            src="/machines/vmc-1.png"
+            alt="CNC Machining"
+            fill
+            className="object-cover opacity-20 scale-105 blur-sm"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-vme-dark via-vme-dark/80 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-vme-dark via-vme-dark/90 to-vme-dark/40"></div>
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
-          <MotionDiv 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
-          >
-            <div className="inline-flex items-center gap-2 bg-vme-red/10 border border-vme-red/20 px-4 py-1 rounded-full mb-6">
-              <span className="w-2 h-2 bg-vme-red rounded-full animate-pulse"></span>
-              <span className="text-vme-red text-xs font-bold uppercase tracking-widest">Precision Engineering Excellence</span>
-            </div>
-            <h1 className="text-5xl md:text-7xl font-bold font-outfit text-white mb-6 leading-tight">
-              The Bedrock of <br/>
-              <span className="text-vme-blue">Innovative Engineering</span>
-            </h1>
-            <p className="text-lg text-slate-300 mb-10 max-w-xl leading-relaxed">
-              Providing world-class precision manufacturing solutions since 2021. Specializing in high-tolerance CNC machining for Aerospace, Automotive, and Medical industries.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link 
-                href="/services" 
-                className="bg-vme-blue hover:bg-sky-400 text-vme-dark px-8 py-4 rounded-lg font-bold flex items-center gap-2 transition-all transform hover:translate-y-[-2px]"
-              >
-                Explore Services <ArrowRight size={20} />
-              </Link>
-              <Link 
-                href="/portfolio" 
-                className="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-8 py-4 rounded-lg font-bold transition-all"
-              >
-                View Our Facility
-              </Link>
-            </div>
-          </MotionDiv>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <MotionDiv
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-3xl"
+            >
+              <div className="inline-flex items-center gap-2 bg-vme-red/10 border border-vme-red/20 px-4 py-1 rounded-full mb-6">
+                <span className="w-2 h-2 bg-vme-red rounded-full animate-pulse"></span>
+                <span className="text-vme-red text-xs font-bold uppercase tracking-widest">Precision Engineering Excellence</span>
+              </div>
+              <h1 className="text-5xl md:text-7xl font-bold font-outfit text-white mb-6 leading-tight">
+                The Bedrock of <br />
+                <span className="text-vme-blue">Innovative Engineering</span>
+              </h1>
+              <p className="text-lg text-slate-300 mb-10 max-w-xl leading-relaxed">
+                Providing world-class precision manufacturing solutions since 2023. Specializing in high-tolerance CNC machining for Aerospace and Medical industries.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/services"
+                  className="bg-vme-blue hover:bg-sky-400 text-vme-dark px-8 py-4 rounded-lg font-bold flex items-center gap-2 transition-all transform hover:translate-y-[-2px]"
+                >
+                  Explore Services <ArrowRight size={20} />
+                </Link>
+                <Link
+                  href="/facility"
+                  className="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-8 py-4 rounded-lg font-bold transition-all"
+                >
+                  View Our Facility
+                </Link>
+              </div>
+            </MotionDiv>
+
+            {/* Auto-sliding Carousel */}
+            <MotionDiv
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative hidden lg:block h-[500px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-vme-blue/20"
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentSlide}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.6 }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={heroCarouselImages[currentSlide]}
+                    alt={`Hero Slide ${currentSlide}`}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-vme-dark/60 to-transparent"></div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Slide Indicators */}
+              <div className="absolute bottom-6 right-6 flex gap-2">
+                {heroCarouselImages.map((_, i) => (
+                  <div
+                    key={i}
+                    className={`h-1.5 rounded-full transition-all duration-500 ${currentSlide === i ? 'w-8 bg-vme-blue' : 'w-2 bg-white/30'
+                      }`}
+                  />
+                ))}
+              </div>
+            </MotionDiv>
+          </div>
         </div>
 
-        {/* Floating Stats */}
-        <div className="absolute bottom-10 right-10 hidden lg:flex gap-12 z-10 bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10">
+        {/* Floating Stats - repositioned for new layout */}
+        <div className="absolute bottom-10 right-10 hidden xl:flex gap-12 z-20 bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10">
           <div className="text-center">
-            <div className="text-3xl font-bold text-vme-blue font-outfit">0.0002"</div>
+            <div className="text-2xl font-bold text-vme-blue font-outfit">0.0002"</div>
             <div className="text-[10px] text-slate-400 uppercase tracking-widest mt-1">Tolerance Precision</div>
           </div>
           <div className="w-px h-10 bg-white/10"></div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-vme-red font-outfit">2021</div>
+            <div className="text-2xl font-bold text-vme-red font-outfit">2023</div>
             <div className="text-[10px] text-slate-400 uppercase tracking-widest mt-1">Established Year</div>
-          </div>
-          <div className="w-px h-10 bg-white/10"></div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-white font-outfit">4th Axis</div>
-            <div className="text-[10px] text-slate-400 uppercase tracking-widest mt-1">VMC Capability</div>
           </div>
         </div>
       </section>
@@ -90,7 +140,7 @@ const Home = () => {
               <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-vme-blue/10 rounded-2xl -z-0"></div>
               <div className="absolute -top-8 -left-8 w-32 h-32 border-l-4 border-t-4 border-vme-red/30"></div>
             </div>
-            
+
             <div className="space-y-8">
               <div className="space-y-4">
                 <h3 className="text-vme-red font-bold uppercase tracking-widest text-sm">Welcome to VME</h3>
@@ -132,26 +182,26 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { 
-                icon: Cpu, 
-                title: "CNC Machining", 
-                desc: "Specialized in Jig & Fixtures, Component Manufacturing, and Tool & Die with high accuracy.",
+              {
+                icon: Cpu,
+                title: "CNC Machining",
+                desc: "Specialized in Aerospace Components, Medical Components, Jig & Fixtures, and Tool & Die with high accuracy.",
                 image: "/machines/vmc-1.png"
               },
-              { 
-                icon: Settings, 
-                title: "Manufacturing Service", 
+              {
+                icon: Settings,
+                title: "Manufacturing Service",
                 desc: "Precision conventional machining, press tools, and mold manufacturing with innovative tech.",
                 image: "/parts/parts-1.png"
               },
-              { 
-                icon: DraftingCompass, 
-                title: "Engineering Service", 
+              {
+                icon: DraftingCompass,
+                title: "Engineering Service",
                 desc: "3D Process design, conceptual modeling for manufacturability, and turn-key solutions.",
                 image: "/machines/vmc-1.png"
               }
             ].map((service, i) => (
-              <MotionDiv 
+              <MotionDiv
                 key={i}
                 whileHover={{ y: -10 }}
                 className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 group"
@@ -176,7 +226,7 @@ const Home = () => {
         </div>
       </section>
 
-      <Testimonials />
+
 
       {/* CTA Section */}
       <section className="py-20 bg-vme-blue relative overflow-hidden">
@@ -186,8 +236,8 @@ const Home = () => {
             <h2 className="text-3xl font-bold font-outfit">Ready to start your next project?</h2>
             <p className="text-white/80">Get a precision-focused consultation and quote from our engineering experts.</p>
           </div>
-          <Link 
-            href="/contact" 
+          <Link
+            href="/contact"
             className="bg-white text-vme-blue hover:bg-vme-slate hover:text-white px-10 py-4 rounded-xl font-bold transition-all shadow-xl"
           >
             Contact VME Today
