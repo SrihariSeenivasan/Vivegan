@@ -156,7 +156,7 @@ const FacilityPage = () => {
               <div className="inline-flex items-center gap-2 bg-vme-blue/10 px-4 py-1 rounded-full text-vme-blue text-xs font-bold uppercase tracking-widest">
                 <ShieldCheck size={14} /> Quality Control Mastery
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold font-outfit text-vme-slate">Galary</h2>
+              <h2 className="text-4xl md:text-5xl font-bold font-outfit text-vme-slate">Gallery</h2>
               <p className="text-slate-600 leading-relaxed text-lg">
                 Our quality lab is equipped with calibrated instruments to ensure that every dimension meets the tightest tolerances required by our Aerospace and Automotive partners.
               </p>
