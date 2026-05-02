@@ -7,6 +7,22 @@ import { Cpu, Settings, DraftingCompass, CheckCircle2 } from 'lucide-react'
 
 const MotionDiv = motion.div
 
+interface SubSection {
+  title: string;
+  image: string;
+  content: string;
+}
+
+interface Service {
+  title: string;
+  icon: React.ElementType;
+  points: string[];
+  description: string;
+  image: string;
+  subSections?: SubSection[];
+  details?: string[];
+}
+
 const services = [
   {
     title: "CNC Machining Service",
@@ -116,7 +132,7 @@ const ServicesPage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="space-y-24 md:space-y-32">
-            {services.map((service, i) => (
+            {(services as Service[]).map((service, i) => (
               <div key={i} className="group">
                 {service.subSections ? (
                   <>
@@ -141,7 +157,7 @@ const ServicesPage = () => {
 
                     {/* Case 1: CNC Machining (Grid of Cards) */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                      {service.subSections.map((sub: any, idx) => (
+                      {service.subSections?.map((sub: SubSection, idx) => (
                         <MotionDiv
                           key={idx}
                           initial={{ opacity: 0, y: 20 }}
@@ -208,7 +224,7 @@ const ServicesPage = () => {
                         {/* Bottom Quote/Desc Overlay - Intensified Blur */}
                         <div className="absolute bottom-0 left-0 right-0 p-8 backdrop-blur-2xl bg-vme-slate/60 border-t border-white/10 group-hover/card:bg-vme-slate/70 transition-all duration-500">
                           <p className="text-lg md:text-xl font-outfit font-medium text-white leading-snug italic">
-                            "{service.description}"
+                            &quot;{service.description}&quot;
                           </p>
                         </div>
                       </div>
@@ -240,7 +256,7 @@ const ServicesPage = () => {
                           </h4>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                          {service.details.map((detail, idx) => (
+                          {service.details?.map((detail, idx) => (
                             <div key={idx} className="flex items-center gap-3 p-4 bg-slate-50 border border-slate-100 rounded-xl hover:bg-white hover:shadow-md transition-all group/point">
                               <CheckCircle2 size={18} className="text-vme-red shrink-0 group-hover/point:scale-110 transition-transform" />
                               <span className="text-xs font-bold text-slate-700 leading-tight">{detail}</span>
@@ -351,7 +367,7 @@ const ServicesPage = () => {
           >
             <h2 className="text-3xl md:text-5xl font-bold font-outfit text-white mb-6">Tight Tolerance Mastery</h2>
             <p className="text-white/80 text-base md:text-lg leading-relaxed mb-12 max-w-2xl mx-auto">
-              Specializing in the manufacturing of tight tolerance parts up to <span className="text-vme-blue font-black underline decoration-vme-red underline-offset-8">0.0002"</span> in production mode, utilizing premium materials.
+              Specializing in the manufacturing of tight tolerance parts up to <span className="text-vme-blue font-black underline decoration-vme-red underline-offset-8">0.0002 &quot;</span> in production mode, utilizing premium materials.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

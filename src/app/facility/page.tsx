@@ -14,16 +14,16 @@ const machines = [
     speed: "10000 RPM",
     controller: "FANUC Series Oi-MF plus",
     extra: "4th Axis Rotary Table (200mm dia Ucam)",
-    image: "/machines/VME850V.png"
+    image: "/machines/vmc850.jpeg"
   },
   {
-    name: "VME 9500",
+    name: "BMV pro 9500",
     type: "Vertical Machining",
     bed: "1000 x 650 mm",
     travel: "X: 950mm | Y: 550mm | Z: 550mm",
     speed: "10000 RPM",
     controller: "Mitsubishi",
-    image: "/machines/cnc-op.png"
+    image: "/machines/bmvpro9500.jpeg"
   },
   {
     name: "VME RDX-20",
@@ -32,7 +32,7 @@ const machines = [
     travel: "X: 800mm | Y: 500mm | Z: 500mm",
     speed: "8000 RPM",
     controller: "FANUC Series Oi-MF plus",
-    image: "/services/manufacturing.png"
+    image: "/machines/vmcRDX20.webp"
   },
   {
     name: "VME 740V",
@@ -42,7 +42,7 @@ const machines = [
     speed: "10000 RPM",
     controller: "FANUC Series Oi-MF plus",
     extra: "4th Axis Rotary Table (200mm dia Ucam)",
-    image: "/services/tool-die.png"
+    image: "/machines/vmc740.jpeg"
   }
 ]
 
@@ -50,31 +50,31 @@ const instruments = [
   {
     name: "Surface Plate",
     detail: "Grade I, 500 X 500 mm, Granite (GMT Make)",
-    image: "/parts/parts-1.png",
+    image: "/equipments/1.png",
     icon: Gauge
   },
   {
     name: "Height Gauge",
     detail: "300 mm Long (Digital Height Gauge Mitutoyo)",
-    image: "/machines/vmc-1.png",
+    image: "/equipments/2.png",
     icon: Ruler
   },
   {
     name: "Dial Comparator",
     detail: "1 m Mahr make (1 Nos)",
-    image: "/services/component-manufacturing.png",
+    image: "/equipments/3.png",
     icon: Monitor
   },
   {
     name: "Micrometers",
     detail: "0-25 to 50-75 mm (Mitutoyo make)",
-    image: "/services/tool-die.png",
+    image: "/equipments/4.png",
     icon: Gauge
   },
   {
     name: "Vernier Calipers",
     detail: "200mm, 300mm, 150mm (Digital Vernier Mitutoyo)",
-    image: "/parts/parts-1.png",
+    image: "/equipments/5.png",
     icon: Ruler
   }
 ]
@@ -151,14 +151,93 @@ const FacilityPage = () => {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-vme-blue/5 rounded-full -translate-y-1/2 translate-x-1/2 -z-0"></div>
 
         <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+          <div className="flex flex-col items-center gap-12 mb-24">
+            {/* Premium Certificate Showcase */}
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative group max-w-5xl w-full"
+            >
+              {/* Dynamic Background Glow */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-vme-blue/10 via-vme-red/5 to-vme-blue/10 rounded-[4rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+              
+              <div className="relative bg-white rounded-[3.5rem] p-8 md:p-16 shadow-[0_50px_100px_-20px_rgba(15,23,42,0.15)] border border-slate-100 overflow-hidden">
+                {/* Decorative Background Pattern */}
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none grainy-bg"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-vme-blue/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+                
+                <div className="flex flex-col lg:flex-row gap-16 items-center">
+                  {/* Layered 3D Image Display */}
+                  <div className="relative w-full lg:w-[45%] aspect-[3/4] group-hover:scale-105 transition-transform duration-700">
+                    <div className="absolute inset-0 bg-vme-slate rounded-2xl transform rotate-3 shadow-xl"></div>
+                    <div className="absolute inset-0 bg-white rounded-2xl border-4 border-slate-50 shadow-2xl flex items-center justify-center p-2 transform -rotate-2 group-hover:rotate-0 transition-transform duration-500 overflow-hidden">
+                      <Image 
+                        src="/assets/ISO.jpeg" 
+                        alt="ISO Certification" 
+                        fill 
+                        className="object-contain p-4"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none"></div>
+                    </div>
+                    {/* Metallic Seal */}
+                    <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-gradient-to-br from-yellow-300 via-yellow-500 to-yellow-600 rounded-full shadow-2xl border-4 border-white flex items-center justify-center text-white transform group-hover:scale-110 transition-transform">
+                      <ShieldCheck size={32} />
+                    </div>
+                  </div>
+
+                  {/* Context & Content */}
+                  <div className="flex-1 text-left space-y-8 relative z-10">
+                    <div className="space-y-4">
+                      <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-600 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm">
+                        <CheckCircle2 size={16} /> Audit Verified
+                      </div>
+                      <h3 className="text-4xl md:text-6xl font-bold font-outfit text-vme-slate leading-[1.1]">
+                        ISO 9001:2015 <br/>
+                        <span className="text-vme-blue">Certified Excellence</span>
+                      </h3>
+                    </div>
+                    
+                    <p className="text-slate-500 text-lg md:text-xl leading-relaxed font-medium">
+                      Our facility strictly adheres to international Quality Management Systems, ensuring repeatable precision for Aerospace and Medical sectors.
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-6 pt-4">
+                      <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100 group-hover:bg-vme-blue/5 transition-colors">
+                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-2">Standard</div>
+                        <div className="font-bold text-vme-slate text-lg">ISO 9001</div>
+                      </div>
+                      <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100 group-hover:bg-vme-red/5 transition-colors">
+                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-2">Scope</div>
+                        <div className="font-bold text-vme-slate text-lg">Global Manufacturing</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Content Quote Card Below */}
+            {/* <div className="w-full bg-vme-dark rounded-[3.5rem] p-10 md:p-20 relative overflow-hidden group max-w-5xl shadow-2xl">
+              <Image src="/parts/parts-1.png" alt="Lab" fill className="object-cover opacity-20 grayscale group-hover:scale-105 group-hover:grayscale-0 transition-all duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-r from-vme-dark via-vme-dark/60 to-transparent"></div>
+              <div className="relative z-10">
+                <h3 className="text-3xl md:text-5xl font-bold font-outfit text-white mb-8 leading-tight">ISO Standard Execution</h3>
+                <p className="text-slate-300 text-lg md:text-2xl leading-relaxed italic border-l-4 border-vme-red pl-8 max-w-3xl">
+                  &quot;Our commitment to quality is embedded in our processes, following rigorous ISO standards to deliver components that define precision.&quot;
+                </p>
+              </div>
+            </div> */}
+          </div>
+
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 pt-20 border-t border-slate-200">
             <div className="space-y-4 max-w-2xl">
               <div className="inline-flex items-center gap-2 bg-vme-blue/10 px-4 py-1 rounded-full text-vme-blue text-xs font-bold uppercase tracking-widest">
                 <ShieldCheck size={14} /> Quality Control Mastery
               </div>
               <h2 className="text-4xl md:text-5xl font-bold font-outfit text-vme-slate">Gallery</h2>
               <p className="text-slate-600 leading-relaxed text-lg">
-                Our quality lab is equipped with calibrated instruments to ensure that every dimension meets the tightest tolerances required by our Aerospace and Automotive partners.
+                Our quality lab is equipped with calibrated instruments to ensure that every dimension meets the tightest tolerances required by our Aerospace and Medical partners.
               </p>
             </div>
           </div>
@@ -173,9 +252,14 @@ const FacilityPage = () => {
                 transition={{ delay: i * 0.1 }}
                 className="bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl hover:border-vme-blue/30 transition-all group h-full flex flex-col"
               >
-                <div className="aspect-[4/3] relative overflow-hidden bg-slate-100">
-                  <Image src={ins.image} alt={ins.name} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-vme-slate/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="aspect-[4/3] relative overflow-hidden bg-slate-50 flex items-center justify-center">
+                  <Image 
+                    src={ins.image} 
+                    alt={ins.name} 
+                    fill 
+                    className="object-contain p-6 group-hover:scale-110 transition-transform duration-700" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-200/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm p-2 rounded-xl text-vme-blue shadow-lg opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
                     <ins.icon size={20} />
                   </div>
@@ -194,26 +278,6 @@ const FacilityPage = () => {
             ))}
           </div>
 
-          <div className="mt-20 grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-8 bg-vme-dark rounded-[3rem] p-10 md:p-16 relative overflow-hidden group">
-              <Image src="/parts/parts-1.png" alt="Lab" fill className="object-cover opacity-30 grayscale group-hover:scale-105 group-hover:grayscale-0 transition-all duration-1000" />
-              <div className="absolute inset-0 bg-gradient-to-r from-vme-dark via-vme-dark/60 to-transparent"></div>
-              <div className="relative z-10 flex flex-col justify-center h-full max-w-xl">
-                <h3 className="text-3xl md:text-5xl font-bold font-outfit text-white mb-6 leading-tight">ISO Standard Execution</h3>
-                <p className="text-slate-300 text-lg md:text-xl leading-relaxed italic border-l-4 border-vme-red pl-6">
-                  "Our commitment to quality is embedded in our processes, following rigorous ISO standards to deliver components that define precision."
-                </p>
-              </div>
-            </div>
-            <div className="lg:col-span-4 bg-vme-blue rounded-[3rem] p-12 text-vme-dark flex flex-col justify-between group overflow-hidden relative">
-              <div className="relative z-10">
-                <ShieldCheck size={48} className="mb-8" />
-                <h3 className="text-3xl font-bold font-outfit mb-4">Total Compliance</h3>
-                <p className="font-medium text-vme-dark/80">Every instrument is calibrated to global standards ensuring repeatable accuracy.</p>
-              </div>
-              <Image src="/logos/vme-logo.png" alt="VME logo" width={100} height={100} className="relative z-10 opacity-20 invert group-hover:scale-110 transition-transform" />
-            </div>
-          </div>
         </div>
       </section>
 
@@ -221,7 +285,7 @@ const FacilityPage = () => {
       <section className="h-64 relative bg-vme-dark flex items-center justify-center overflow-hidden">
         <Image src="/machines/vmc-1.png" alt="Background" fill className="object-cover opacity-20" />
         <div className="container px-6 relative z-10 text-center">
-          <h2 className="text-2xl font-bold font-outfit text-white mb-6 italic">"Precision at Every Micron"</h2>
+          <h2 className="text-2xl font-bold font-outfit text-white mb-6 italic">&quot;Precision at Every Micron&quot;</h2>
           <div className="w-32 h-1 bg-vme-blue mx-auto rounded-full"></div>
         </div>
       </section>

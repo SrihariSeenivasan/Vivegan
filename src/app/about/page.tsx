@@ -101,7 +101,7 @@ const AboutPage = () => {
             >
               <div className="aspect-square bg-slate-100 rounded-3xl overflow-hidden shadow-2xl relative group">
                 <Image
-                  src="/machines/vmc-1.png"
+                  src="/assets/about.webp"
                   alt="Facility"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -109,7 +109,7 @@ const AboutPage = () => {
               </div>
               {/* Floating badge */}
               <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 hidden md:block">
-                <div className="text-4xl font-bold text-vme-red font-outfit">0.0002"</div>
+                <div className="text-4xl font-bold text-vme-red font-outfit">0.0002 &quot;</div>
                 <div className="text-xs text-slate-500 uppercase tracking-widest mt-1">Tolerance Precision</div>
               </div>
               {/* Corner decorations */}

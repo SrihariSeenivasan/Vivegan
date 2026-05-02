@@ -10,9 +10,10 @@ import { Settings, Cpu, DraftingCompass, ArrowRight, ShieldCheck, Microscope, Za
 const MotionDiv = motion.div
 
 const heroCarouselImages = [
-  "/machines/vmc-1.png",
-  "/parts/parts-1.png",
-  "/machines/cnc-op.png"
+  "/assets/1.jpeg",
+  "/assets/2.jpeg",
+  "/assets/3.jpeg",
+  "/assets/4.jpeg"
 ]
 
 const Home = () => {
@@ -32,12 +33,12 @@ const Home = () => {
         {/* Background Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/machines/vmc-1.png"
-            alt="CNC Machining"
+            src="/assets/main.png"
+            alt="Vivegan MI"
             fill
-            className="object-cover opacity-20 scale-105 blur-sm"
+            className="object-cover opacity-100 scale-105 blur-[2px]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-vme-dark via-vme-dark/90 to-vme-dark/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-vme-dark via-vme-dark/90 to-vme-dark/60"></div>
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
@@ -118,7 +119,7 @@ const Home = () => {
         {/* Floating Stats - repositioned for new layout */}
         <div className="absolute bottom-10 right-10 hidden xl:flex gap-12 z-20 bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10">
           <div className="text-center">
-            <div className="text-2xl font-bold text-vme-blue font-outfit">0.0002"</div>
+            <div className="text-2xl font-bold text-vme-blue font-outfit">&quot; 0.0002 &quot;</div>
             <div className="text-[10px] text-slate-400 uppercase tracking-widest mt-1">Tolerance Precision</div>
           </div>
           <div className="w-px h-10 bg-white/10"></div>
@@ -186,19 +187,19 @@ const Home = () => {
                 icon: Cpu,
                 title: "CNC Machining",
                 desc: "Specialized in Aerospace Components, Medical Components, Jig & Fixtures, and Tool & Die with high accuracy.",
-                image: "/machines/vmc-1.png"
+                image: "/machines/vmc850.jpeg"
               },
               {
                 icon: Settings,
                 title: "Manufacturing Service",
                 desc: "Precision conventional machining, press tools, and mold manufacturing with innovative tech.",
-                image: "/parts/parts-1.png"
+                image: "/services/manufacturing.png"
               },
               {
                 icon: DraftingCompass,
                 title: "Engineering Service",
                 desc: "3D Process design, conceptual modeling for manufacturability, and turn-key solutions.",
-                image: "/machines/vmc-1.png"
+                image: "/services/engineering.png"
               }
             ].map((service, i) => (
               <MotionDiv
