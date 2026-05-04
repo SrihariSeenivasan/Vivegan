@@ -18,6 +18,7 @@ const heroCarouselImages = [
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [showIntro, setShowIntro] = useState(true)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -26,21 +27,35 @@ const Home = () => {
     return () => clearInterval(timer)
   }, [])
 
+  useEffect(() => {
+    const introTimer = setTimeout(() => {
+      setShowIntro(false)
+    }, 10000)
+    return () => clearTimeout(introTimer)
+  }, [])
+
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-vme-dark pt-20">
-        {/* Background Overlay */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/assets/main.png"
-            alt="Vivegan MI"
-            fill
-            className="object-cover opacity-100 scale-105 blur-[2px]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-vme-dark via-vme-dark/90 to-vme-dark/60"></div>
-        </div>
-
+        <AnimatePresence>
+          {showIntro && (
+            <MotionDiv
+              initial={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+              className="absolute inset-0 z-50 bg-vme-dark flex items-center justify-center"
+            >
+              <Image
+                src="/assets/main.png"
+                alt="Vivegan MI Intro"
+                fill
+                className="object-contain"
+                priority
+              />
+            </MotionDiv>
+          )}
+        </AnimatePresence>
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <MotionDiv
