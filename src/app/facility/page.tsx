@@ -7,7 +7,7 @@ import { Ruler, Monitor, Cpu, Gauge, ShieldCheck, Cog, CheckCircle2 } from 'luci
 
 const machines = [
   {
-    name: "VME 850V",
+    name: "AMS 850V",
     type: "Vertical Machining",
     bed: "1000 x 510 mm",
     travel: "X: 800mm | Y: 500mm | Z: 500mm",
@@ -26,7 +26,7 @@ const machines = [
     image: "/machines/bmvpro9500.jpeg"
   },
   {
-    name: "VME RDX-20",
+    name: "Jyoti RDX-20",
     type: "Vertical Machining",
     bed: "1000 x 510 mm",
     travel: "X: 800mm | Y: 500mm | Z: 500mm",
@@ -35,7 +35,7 @@ const machines = [
     image: "/machines/vmcRDX20.webp"
   },
   {
-    name: "VME 740V",
+    name: "AMS 740V",
     type: "Vertical Machining",
     bed: "900 x 400 mm",
     travel: "X: 750mm | Y: 470mm | Z: 400mm",
