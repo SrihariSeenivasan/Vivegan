@@ -301,7 +301,7 @@ const AboutPage = () => {
       </section>
 
       {/* ── Client Carousel ─────────────────────────────────── */}
-      <ClientCarousel />
+      {/* <ClientCarousel /> */}
 
       {/* ── Stats Bar ───────────────────────────────────────── */}
       <section className="py-20 bg-vme-dark text-white relative overflow-hidden">
